@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/ik/ik_bone.gd" type="Script" id=1]
+[ext_resource path="res://IKGoal.gd" type="Script" id=2]
+
+[node name="IK" type="Node2D"]
+
+[node name="IKBone" type="Node2D" parent="."]
+rotation = 6.25143
+script = ExtResource( 1 )
+
+[node name="IKBone2" type="Node2D" parent="IKBone"]
+position = Vector2( 10, 0 )
+rotation = 6.20431
+script = ExtResource( 1 )
+
+[node name="IKBone3" type="Node2D" parent="IKBone/IKBone2"]
+position = Vector2( 10, 0 )
+rotation = 6.01844
+script = ExtResource( 1 )
+
+[node name="IKBone4" type="Node2D" parent="IKBone/IKBone2/IKBone3"]
+position = Vector2( 10, 0 )
+rotation = 5.69166
+script = ExtResource( 1 )
+
+[node name="IKBone5" type="Node2D" parent="IKBone/IKBone2/IKBone3/IKBone4"]
+position = Vector2( 10, 0 )
+rotation = 5.54147
+script = ExtResource( 1 )
+
+[node name="IKBone6" type="Node2D" parent="IKBone/IKBone2/IKBone3/IKBone4/IKBone5"]
+position = Vector2( 10, 0 )
+rotation = 5.72118
+script = ExtResource( 1 )
+
+[node name="IKBone3" type="Node2D" parent="IKBone/IKBone2/IKBone3/IKBone4/IKBone5/IKBone6"]
+position = Vector2( 10, 0 )
+rotation = 5.9114
+script = ExtResource( 1 )
+
+[node name="Goal" type="Position2D" parent="."]
+position = Vector2( 18.3218, -35.6607 )
+script = ExtResource( 2 )
+recurse_limit = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.2, 0.2 )
+
+[connection signal="item_rect_changed" from="Goal" to="Goal" method="_on_IKGoal_item_rect_changed"]
